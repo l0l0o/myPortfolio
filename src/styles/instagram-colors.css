@@ -1,0 +1,80 @@
+:root {
+  /* Couleurs principales d'Instagram */
+  --instagram-royal-blue: #405de6;
+  --instagram-blue: #5b51d8;
+  --instagram-purple: #833ab4;
+  --instagram-dark-pink: #c13584;
+  --instagram-purple-red: #e1306c;
+  --instagram-red: #fd1d1d;
+  --instagram-dark-orange: #f56040;
+  --instagram-orange: #f77737;
+  --instagram-yellow: #fcaf45;
+  --instagram-light-yellow: #ffdc80;
+
+  /* Couleurs de l'interface */
+  --instagram-background: #ffffff;
+  --instagram-background-dark: #0a0a0a;
+  --instagram-foreground: #171717;
+  --instagram-foreground-dark: #ededed;
+  --instagram-button-secondary: #efefef;
+  --instagram-separator: #dbdbdb;
+  --instagram-separator-dark: #262626;
+  --instagram-placeholder: #8e8e8e;
+
+  /* Couleurs pour les fonctionnalités */
+  --instagram-like: #ed4956;
+  --instagram-link: #00376b;
+  --instagram-mention: #385898;
+  --instagram-notification: #ff3b30;
+  --instagram-verified: #0095f6;
+  --instagram-creation: linear-gradient(
+    45deg,
+    #405de6,
+    #5b51d8,
+    #833ab4,
+    #c13584,
+    #e1306c,
+    #fd1d1d,
+    #f56040,
+    #f77737,
+    #fcaf45,
+    #ffdc80
+  );
+
+  /* Gradient simplifié (5 couleurs principales) */
+  --instagram-gradient: linear-gradient(
+    45deg,
+    #405de6,
+    #833ab4,
+    #c13584,
+    #f77737,
+    #ffdc80
+  );
+
+  /* Gradient pour les story rings */
+  --instagram-story-ring: conic-gradient(
+    #fcaf45 0%,
+    #e1306c 25%,
+    #c13584 50%,
+    #833ab4 75%,
+    #405de6 100%
+  );
+}
+
+/* Classes utilitaires */
+.instagram-gradient {
+  background: var(--instagram-gradient);
+}
+
+.instagram-story-ring {
+  background: var(--instagram-story-ring);
+}
+
+/* Media query pour le mode sombre */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --instagram-background: var(--instagram-background-dark);
+    --instagram-foreground: var(--instagram-foreground-dark);
+    --instagram-separator: var(--instagram-separator-dark);
+  }
+}
