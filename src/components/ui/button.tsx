@@ -15,7 +15,7 @@ export default function Button({
 }) {
   return (
     <button
-      className={`h-8 bg-gray-100 rounded-lg px-4 py-2 flex flex-row items-center gap-0 ${className}`}
+      className={`h-8 bg-gray-100 rounded-lg px-4 py-2 flex flex-row items-center gap-0 cursor-pointer hover:bg-gray-200 ${className}`}
     >
       <span className={`font-semibold ${isSmallText ? "text-sm" : "text-md"}`}>
         {text}
