@@ -6,7 +6,10 @@ const Wrapper = ({
   widthPx: number;
 }) => {
   return (
-    <div className={`flex flex-col w-[${widthPx}px] px-5 pt-7 mx-auto`}>
+    <div
+      className="flex flex-col px-5 pt-7 mx-auto"
+      style={{ width: `${widthPx}px` }}
+    >
       {children}
     </div>
   );
