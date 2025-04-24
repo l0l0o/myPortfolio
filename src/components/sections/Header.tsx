@@ -6,10 +6,14 @@ export default function Header({
   user_id = "loic_caille",
   username = "Loïc Caillé",
   description = "Développeur web et mobile",
+  user1 = "la_chance",
+  user2 = "la_passion",
 }: {
   user_id?: string;
   username?: string;
   description?: string;
+  user1?: string;
+  user2?: string;
 }) {
   const formattedUsername = username.replace(/ /g, "\u00A0");
   username.split(" ").map((name) => {
@@ -62,9 +66,11 @@ export default function Header({
             </span>
           </div>
 
-          <div className="flex flex-row gap-12">
-            <span className="text-sm font-regular text-gray-400">
-              Suivi par
+          <div className="flex flex-row gap-12 mt-3">
+            <span className="text-xs font-semibold text-gray-400">
+              <span className="text-black">{user1}</span>,{" "}
+              <span className="text-black">{user2}</span> et 3 autres personnes
+              suivent
             </span>
           </div>
         </section>
