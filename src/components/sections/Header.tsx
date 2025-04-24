@@ -1,4 +1,4 @@
-import Button from "@/components/ui/button";
+import Button from "@/components/ui/Button";
 import NumberedText from "@/components/ui/NumberedText";
 import Svg from "@/components/ui/Svg";
 
