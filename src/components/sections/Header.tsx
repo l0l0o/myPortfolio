@@ -1,6 +1,7 @@
 import Button from "@/components/ui/Button";
 import NumberedText from "@/components/ui/NumberedText";
 import Svg from "@/components/ui/Svg";
+import RoundedPicture from "@/components/ui/RoundedPicture";
 
 export default function Header({
   user_id = "loic_caille",
@@ -8,12 +9,14 @@ export default function Header({
   description = "Développeur web et mobile",
   user1 = "la_chance",
   user2 = "la_passion",
+  className = "",
 }: {
   user_id?: string;
   username?: string;
   description?: string;
   user1?: string;
   user2?: string;
+  className?: string;
 }) {
   const formattedUsername = username.replace(/ /g, "\u00A0");
   username.split(" ").map((name) => {
@@ -21,12 +24,12 @@ export default function Header({
   });
 
   return (
-    <div className="flex items-center">
+    <div className={`flex items-center ${className}`}>
       <div className="flex gap-0 w-full">
         <section className="flex items-center h-45 w-71 justify-center">
-          <div className="flex items-center w-[150px] h-[150px] rounded-full bg-gray-100">
-            <Svg src="images/logo.svg" alt="logo" width={150} height={150} />
-          </div>
+          <RoundedPicture size="lg">
+            <Svg src="images/logo.svg" alt="logo" width={75} height={75} />
+          </RoundedPicture>
         </section>
 
         <section className="flex flex-col justify-start items-start">
