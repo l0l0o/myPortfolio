@@ -1,8 +1,16 @@
 import Button from "@/components/ui/button";
 import NumberedText from "@/components/ui/NumberedText";
+import Svg from "@/components/ui/Svg";
 
-export default function Header() {
-  const username = "loic_caille";
+export default function Header({
+  user_id = "loic_caille",
+  username = "Loïc Caillé",
+  description = "Développeur web et mobile",
+}: {
+  user_id?: string;
+  username?: string;
+  description?: string;
+}) {
   const formattedUsername = username.replace(/ /g, "\u00A0");
   username.split(" ").map((name) => {
     return name.charAt(0).toUpperCase() + name.slice(1);
@@ -13,17 +21,13 @@ export default function Header() {
       <div className="flex gap-0 w-full">
         <section className="flex items-center h-45 w-71 justify-center">
           <div className="flex items-center w-[150px] h-[150px] rounded-full bg-gray-100">
-            <picture>
-              <img src="images/logo.svg" alt="logo" width={150} height={150} />
-            </picture>
+            <Svg src="images/logo.svg" alt="logo" width={150} height={150} />
           </div>
         </section>
 
         <section className="flex flex-col justify-start items-start">
           <div className="flex flex-row items-center mb-5">
-            <span className="text-xl font-regular mr-5">
-              {formattedUsername}
-            </span>
+            <span className="text-xl font-regular mr-5">{user_id}</span>
             <div className="flex flex-row gap-2">
               <Button
                 text="Suivi(e)"
@@ -33,16 +37,36 @@ export default function Header() {
               />
               <Button text="Contacter" isSmallText={false} />
             </div>
-            <picture className="p-2 cursor-pointer">
-              <img src="icons/more.svg" alt="logo" width={32} height={32} />
-            </picture>
+            <Svg
+              src="icons/more.svg"
+              alt="logo"
+              width={32}
+              height={32}
+              className="p-2 cursor-pointer"
+            />
           </div>
+
           <div className="flex flex-row gap-12 mb-3">
             <NumberedText number={0} text="publications" />
             <NumberedText number={0} text="followers" />
             <NumberedText number={0} text="suivi(e)s" />
           </div>
-          <div className="flex flex-row gap-12"></div>
+
+          <div className="flex flex-row gap-12">
+            <span className="text-md font-semibold">{formattedUsername}</span>
+          </div>
+
+          <div className="flex flex-row gap-12">
+            <span className="text-md font-regular text-gray-400">
+              {description}
+            </span>
+          </div>
+
+          <div className="flex flex-row gap-12">
+            <span className="text-sm font-regular text-gray-400">
+              Suivi par
+            </span>
+          </div>
         </section>
       </div>
     </div>

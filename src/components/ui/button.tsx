@@ -1,3 +1,5 @@
+import Svg from "@/components/ui/Svg";
+
 export default function Button({
   text = "button",
   className = "",
@@ -21,9 +23,13 @@ export default function Button({
         {text}
       </span>
       {isIcon && (
-        <picture className={`${rotateIcon} w-4 h-4`}>
-          <img src={icon} alt="logo" width={12} height={12} />
-        </picture>
+        <Svg
+          src={icon}
+          alt="logo"
+          width={12}
+          height={12}
+          className={`${rotateIcon} w-4 h-4`}
+        />
       )}
     </button>
   );
