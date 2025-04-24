@@ -1,4 +1,3 @@
-import Svg from "./Svg";
 import Image from "next/image";
 import { ReactElement } from "react";
 
@@ -8,7 +7,7 @@ export default function RoundedPicture({
   hasBorder = false,
   borderColor = "gray",
 }: {
-  children: ReactElement<typeof Svg | typeof Image>;
+  children: ReactElement<typeof Image>;
   size: "xs" | "md" | "lg";
   hasBorder?: boolean;
   borderColor?: "gray" | "colored";

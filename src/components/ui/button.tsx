@@ -1,34 +1,34 @@
-import Svg from "@/components/ui/Svg";
+import Image from "next/image";
 
 export default function Button({
   text = "button",
   className = "",
-  isIcon = false,
+  hasIcon = false,
   icon = "",
-  isSmallText = false,
+  hasSmallText = false,
   rotateIcon = "rotate-180",
 }: {
   text: string;
   className?: string;
-  isIcon?: boolean;
+  hasIcon?: boolean;
   icon?: string;
-  isSmallText?: boolean;
+  hasSmallText?: boolean;
   rotateIcon?: string;
 }) {
   return (
     <button
-      className={`h-8 bg-gray-100 rounded-lg px-4 py-2 flex flex-row items-center gap-0 cursor-pointer hover:bg-gray-200 ${className}`}
+      className={`h-8 bg-gray-100 rounded-lg px-4 py-2 flex flex-row items-center justify-center gap-1 cursor-pointer hover:bg-gray-200 ${className}`}
     >
-      <span className={`font-semibold ${isSmallText ? "text-sm" : "text-md"}`}>
+      <span className={`font-semibold ${hasSmallText ? "text-sm" : "text-md"}`}>
         {text}
       </span>
-      {isIcon && (
-        <Svg
+      {hasIcon && (
+        <Image
           src={icon}
           alt="logo"
           width={12}
           height={12}
-          className={`${rotateIcon} w-4 h-4`}
+          className={`${rotateIcon}`}
         />
       )}
     </button>

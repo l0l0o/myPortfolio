@@ -1,6 +1,6 @@
 import Button from "@/components/ui/Button";
 import NumberedText from "@/components/ui/NumberedText";
-import Svg from "@/components/ui/Svg";
+import Image from "next/image";
 import RoundedPicture from "@/components/ui/RoundedPicture";
 
 export default function Header({
@@ -28,7 +28,7 @@ export default function Header({
       <div className="flex gap-0 w-full">
         <section className="flex items-center h-45 w-71 justify-center">
           <RoundedPicture size="lg">
-            <Svg src="images/logo.svg" alt="logo" width={75} height={75} />
+            <Image src="images/logo.svg" alt="logo" width={75} height={75} />
           </RoundedPicture>
         </section>
 
@@ -38,18 +38,18 @@ export default function Header({
             <div className="flex flex-row gap-2">
               <Button
                 text="Suivi(e)"
-                isSmallText={true}
-                isIcon={true}
+                hasSmallText={true}
+                hasIcon={true}
                 icon="icons/chevron_up.svg"
               />
-              <Button text="Contacter" isSmallText={false} />
+              <Button text="Contacter" hasSmallText={false} />
             </div>
-            <Svg
+            <Image
               src="icons/more.svg"
               alt="logo"
               width={32}
               height={32}
-              className="p-2 cursor-pointer"
+              className="cursor-pointer ml-2"
             />
           </div>
 
@@ -63,10 +63,19 @@ export default function Header({
             <span className="text-md font-semibold">{formattedUsername}</span>
           </div>
 
-          <div className="flex flex-row gap-12">
+          <div className="flex flex-col">
             <span className="text-md font-regular text-gray-400">
               {description}
             </span>
+            <div className="flex flex-row gap-2 items-center">
+              <Image src="icons/link.svg" alt="logo" width={12} height={12} />
+              <a
+                href="https://github.com/l0l0o"
+                className="text-sm font-semibold text-blue-950"
+              >
+                Mon github
+              </a>
+            </div>
           </div>
 
           <div className="flex flex-row gap-12 mt-3">
