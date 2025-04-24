@@ -25,7 +25,7 @@ export default function RoundedPicture({
   };
 
   return (
-    <div className="relative">
+    <div className="relative cursor-pointer">
       <div
         className="flex items-center justify-center rounded-full bg-blue-500"
         style={{
