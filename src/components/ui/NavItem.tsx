@@ -1,3 +1,5 @@
+import Svg from "@/components/ui/Svg";
+
 export default function NavItem({
   title,
   icon,
@@ -16,11 +18,15 @@ export default function NavItem({
       className="flex items-center gap-4 p-3 my-1 h-12 hover:bg-gray-100 rounded-lg transition-all duration-300 cursor-pointer"
       onClick={onClick}
     >
-      <picture>
-        <img src={isFocus ? focusIcon : icon} alt="" width={24} height={24} />
-      </picture>
+      <Svg
+        src={isFocus ? focusIcon : icon}
+        alt=""
+        width={24}
+        height={24}
+        className="p-2 cursor-pointer"
+      />
       <p
-        className={`text-sm text-black ${
+        className={`text-md text-black ${
           isFocus ? "font-bold" : "font-normal"
         }`}
       >
