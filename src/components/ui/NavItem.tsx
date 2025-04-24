@@ -26,7 +26,7 @@ export default function NavItem({
         className="p-2 cursor-pointer"
       />
       <p
-        className={`text-sm text-black ${
+        className={`text-md text-black ${
           isFocus ? "font-bold" : "font-normal"
         }`}
       >
