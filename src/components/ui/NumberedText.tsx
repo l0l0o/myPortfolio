@@ -8,7 +8,7 @@ export default function NumberedText({
   return (
     <div className="flex flex-row gap-2">
       <span className="text-md font-medium">{number}</span>
-      <span className="text-md font-regular text-gray-600">{text}</span>
+      <span className="text-md font-regular text-gray-500">{text}</span>
     </div>
   );
 }
