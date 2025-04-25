@@ -2,11 +2,12 @@ import Button from "@/components/ui/Button";
 import NumberedText from "@/components/ui/NumberedText";
 import Image from "next/image";
 import RoundedPicture from "@/components/ui/RoundedPicture";
+import formatUsername from "@/utils/formatUsername";
 
 export default function Header({
   user_id = "loic_caille",
   username = "Loïc Caillé",
-  description = "Développeur web et mobile",
+  description = "Développeur fullstack web et mobile",
   user1 = "la_chance",
   user2 = "la_passion",
   className = "",
@@ -18,10 +19,7 @@ export default function Header({
   user2?: string;
   className?: string;
 }) {
-  const formattedUsername = username.replace(/ /g, "\u00A0");
-  username.split(" ").map((name) => {
-    return name.charAt(0).toUpperCase() + name.slice(1);
-  });
+  const formattedUsername = formatUsername(username);
 
   return (
     <div className={`flex items-center ${className}`}>
