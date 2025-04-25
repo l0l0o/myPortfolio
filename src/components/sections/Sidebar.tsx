@@ -2,14 +2,16 @@
 
 import NavItem from "@/components/ui/NavItem";
 import { useState } from "react";
-import { navItemList } from "@/data/navItems";
+import { navItemList } from "@/data/navItemList";
 import Image from "next/image";
 
 export default function Sidebar() {
-  const [isFocus, setIsFocus] = useState(navItemList[0].title);
+  const [isFocus, setIsFocus] = useState(
+    navItemList.find((item) => item.title === "Accueil")
+  );
 
   const handleClick = (title: string) => {
-    setIsFocus(title);
+    setIsFocus(navItemList.find((item) => item.title === title));
   };
 
   return (
@@ -21,10 +23,8 @@ export default function Sidebar() {
         {navItemList.map((item) => (
           <li key={item.title}>
             <NavItem
-              title={item.title}
-              icon={item.icon}
-              focusIcon={item.focusIcon}
-              isFocus={isFocus === item.title}
+              navItem={item}
+              isFocus={isFocus?.title === item.title}
               onClick={() => handleClick(item.title)}
             />
           </li>
