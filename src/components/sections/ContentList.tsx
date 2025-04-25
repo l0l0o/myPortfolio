@@ -14,8 +14,8 @@ export default function ContentList() {
   };
 
   return (
-    <div className="flex flex-col gap-4">
-      <ul className="flex flex-row gap-4 h-14.5 border-t border-gray-300 justify-center items-center">
+    <div className="flex flex-col">
+      <ul className="flex flex-row h-14.5 border-t border-gray-300 justify-center items-center">
         {postCategories.map((category) => (
           <li key={category.title} className="h-full">
             <CategoryListItem
