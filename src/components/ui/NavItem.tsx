@@ -1,14 +1,12 @@
 import Image from "next/image";
+import type NavItem from "@/types/navItem.type";
+
 export default function NavItem({
-  title,
-  icon,
-  focusIcon,
+  navItem,
   isFocus,
   onClick,
 }: {
-  title: string;
-  icon: string;
-  focusIcon: string;
+  navItem: NavItem;
   isFocus: boolean;
   onClick: () => void;
 }) {
@@ -18,7 +16,7 @@ export default function NavItem({
       onClick={onClick}
     >
       <Image
-        src={isFocus ? focusIcon : icon}
+        src={isFocus ? navItem.focusIcon : navItem.icon}
         alt=""
         width={24}
         height={24}
@@ -29,7 +27,7 @@ export default function NavItem({
           isFocus ? "font-bold" : "font-normal"
         }`}
       >
-        {title}
+        {navItem.title}
       </p>
     </div>
   );
