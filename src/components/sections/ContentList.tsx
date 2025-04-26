@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { postCategories } from "@/data/postCategoryList";
 import CategoryListItem from "@/components/ui/CategoryListItem";
+import PostCard from "@/components/ui/PostCard";
 
 export default function ContentList() {
   const [isFocus, setIsFocus] = useState(
@@ -26,6 +27,9 @@ export default function ContentList() {
           </li>
         ))}
       </ul>
+      <div className="grid grid-cols-3 gap-1">
+        <PostCard picture="/images/test.webp" />
+      </div>
     </div>
   );
 }
