@@ -1,32 +1,33 @@
 import Button from "@/components/ui/Button";
 import NumberedText from "@/components/ui/NumberedText";
-import Svg from "@/components/ui/Svg";
+import Image from "next/image";
+import RoundedPicture from "@/components/ui/RoundedPicture";
+import formatUsername from "@/utils/formatUsername";
 
 export default function Header({
   user_id = "loic_caille",
   username = "Loïc Caillé",
-  description = "Développeur web et mobile",
+  description = "Développeur fullstack web et mobile",
   user1 = "la_chance",
   user2 = "la_passion",
+  className = "",
 }: {
   user_id?: string;
   username?: string;
   description?: string;
   user1?: string;
   user2?: string;
+  className?: string;
 }) {
-  const formattedUsername = username.replace(/ /g, "\u00A0");
-  username.split(" ").map((name) => {
-    return name.charAt(0).toUpperCase() + name.slice(1);
-  });
+  const formattedUsername = formatUsername(username);
 
   return (
-    <div className="flex items-center">
+    <div className={`flex items-center ${className}`}>
       <div className="flex gap-0 w-full">
         <section className="flex items-center h-45 w-71 justify-center">
-          <div className="flex items-center w-[150px] h-[150px] rounded-full bg-gray-100">
-            <Svg src="images/logo.svg" alt="logo" width={150} height={150} />
-          </div>
+          <RoundedPicture size="lg">
+            <Image src="images/logo.svg" alt="logo" width={75} height={75} />
+          </RoundedPicture>
         </section>
 
         <section className="flex flex-col justify-start items-start">
@@ -35,18 +36,18 @@ export default function Header({
             <div className="flex flex-row gap-2">
               <Button
                 text="Suivi(e)"
-                isSmallText={true}
-                isIcon={true}
+                hasSmallText={true}
+                hasIcon={true}
                 icon="icons/chevron_up.svg"
               />
-              <Button text="Contacter" isSmallText={false} />
+              <Button text="Contacter" hasSmallText={false} />
             </div>
-            <Svg
+            <Image
               src="icons/more.svg"
               alt="logo"
               width={32}
               height={32}
-              className="p-2 cursor-pointer"
+              className="cursor-pointer ml-2"
             />
           </div>
 
@@ -60,10 +61,19 @@ export default function Header({
             <span className="text-md font-semibold">{formattedUsername}</span>
           </div>
 
-          <div className="flex flex-row gap-12">
+          <div className="flex flex-col">
             <span className="text-md font-regular text-gray-400">
               {description}
             </span>
+            <div className="flex flex-row gap-2 items-center">
+              <Image src="icons/link.svg" alt="logo" width={12} height={12} />
+              <a
+                href="https://github.com/l0l0o"
+                className="text-sm font-semibold text-blue-950"
+              >
+                Mon github
+              </a>
+            </div>
           </div>
 
           <div className="flex flex-row gap-12 mt-3">

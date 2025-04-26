@@ -1,15 +1,12 @@
-import Svg from "@/components/ui/Svg";
+import Image from "next/image";
+import type NavItem from "@/types/navItem.type";
 
 export default function NavItem({
-  title,
-  icon,
-  focusIcon,
+  navItem,
   isFocus,
   onClick,
 }: {
-  title: string;
-  icon: string;
-  focusIcon: string;
+  navItem: NavItem;
   isFocus: boolean;
   onClick: () => void;
 }) {
@@ -18,19 +15,19 @@ export default function NavItem({
       className="flex items-center gap-4 p-3 my-1 h-12 hover:bg-gray-100 rounded-lg transition-all duration-300 cursor-pointer"
       onClick={onClick}
     >
-      <Svg
-        src={isFocus ? focusIcon : icon}
+      <Image
+        src={isFocus ? navItem.focusIcon : navItem.icon}
         alt=""
         width={24}
         height={24}
-        className="p-2 cursor-pointer"
+        className="cursor-pointer"
       />
       <p
         className={`text-md text-black ${
           isFocus ? "font-bold" : "font-normal"
         }`}
       >
-        {title}
+        {navItem.title}
       </p>
     </div>
   );

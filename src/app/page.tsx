@@ -1,5 +1,7 @@
+import ContentList from "@/components/sections/ContentList";
 import Header from "@/components/sections/Header";
 import Sidebar from "@/components/sections/Sidebar";
+import StoryList from "@/components/sections/StoryList";
 import Wrapper from "@/components/ui/Wrapper";
 
 export default function Home() {
@@ -8,7 +10,9 @@ export default function Home() {
       <Sidebar />
       <main className="flex-1">
         <Wrapper widthPx={975}>
-          <Header />
+          <Header className="mb-11" />
+          <StoryList />
+          <ContentList />
         </Wrapper>
       </main>
     </div>
