@@ -1,6 +1,7 @@
 import RoundedPicture from "./RoundedPicture";
 import Image from "next/image";
-export default function Story({
+
+export default function StoryItem({
   image,
   alt = "",
   title = "",
