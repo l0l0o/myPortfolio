@@ -1,4 +1,6 @@
-export const navItemList = [
+import NavItem from "@/types/navItem.type";
+
+export const navItemList: NavItem[] = [
   {
     title: "Accueil",
     icon: "icons/home.svg",
