@@ -17,9 +17,9 @@ const MediaDisplay = ({
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTime, setCurrentTime] = useState(0);
+  const [, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [progress, setProgress] = useState(0);
+  const [, setProgress] = useState(0);
   const [progressArray, setProgressArray] = useState<number[]>([]);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
