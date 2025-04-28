@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import React, { use, useState } from "react";
+import React, { useState } from "react";
 
 const Logo = ({
   color = "black",

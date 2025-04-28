@@ -13,6 +13,8 @@ const HighlightStory = () => {
   const params = useParams();
   const id = params.id as string;
 
+  console.log("id", id);
+
   const [stories, setStories] = useState<Story[]>([]);
   const [loading, setLoading] = useState(true);
   const newStories = useStories();
@@ -31,7 +33,11 @@ const HighlightStory = () => {
       >
         <Image src="/icons/close.svg" alt="logo" fill />
       </Link>
-      <MediaDisplay story={stories[0]} isActive={true} />
+      <MediaDisplay
+        story={stories[Number(id)]}
+        storyIndex={Number(id)}
+        isActive={true}
+      />
     </div>
   );
 };
