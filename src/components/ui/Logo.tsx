@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import React from "react";
+import React, { use, useState } from "react";
 
 const Logo = ({
   color = "black",
@@ -10,8 +10,21 @@ const Logo = ({
   className?: string;
 }) => {
   const logoSrc = color === "black" ? "logo" : "logo_story";
+  const [opacity, setOpacity] = useState<"" | "opacity-40">("");
+
+  const handleMouseDown = () => {
+    setOpacity("opacity-40");
+  };
+  const handleMouseUp = () => {
+    setOpacity("");
+  };
   return (
-    <Link href={"/"} className={`${className}`}>
+    <Link
+      href={"/"}
+      onMouseDown={handleMouseDown}
+      onMouseUp={handleMouseUp}
+      className={`${className} ${opacity}`}
+    >
       <Image
         src={`/images/${logoSrc}.svg`}
         alt="logo"
