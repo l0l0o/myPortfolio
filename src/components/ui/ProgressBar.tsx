@@ -12,7 +12,7 @@ const ProgressBar = ({ progress }: { progress: number }) => {
   return (
     <div className={"w-full bg-gray-300 rounded-full h-0.5"}>
       <div
-        className="bg-white h-0.5 rounded-full transition-all duration-300 ease-in-out"
+        className="bg-white h-0.5 rounded-full"
         style={{ width: `${width}%` }}
       ></div>
     </div>
