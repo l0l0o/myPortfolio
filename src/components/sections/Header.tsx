@@ -25,9 +25,12 @@ export default function Header({
     <div className={`flex items-center ${className}`}>
       <div className="flex gap-0 w-full">
         <section className="flex items-center h-45 w-71 justify-center">
-          <RoundedPicture size="lg">
-            <Image src="images/logo.svg" alt="logo" width={75} height={75} />
-          </RoundedPicture>
+          <RoundedPicture
+            size="lg"
+            src="images/logo.svg"
+            width={75}
+            height={75}
+          />
         </section>
 
         <section className="flex flex-col justify-start items-start">

@@ -28,7 +28,7 @@ export default function ContentList() {
         ))}
       </ul>
       <div className="grid grid-cols-3 gap-1">
-        <PostCard picture="/images/test.webp" />
+        <PostCard picture="" />
       </div>
     </div>
   );
