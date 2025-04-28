@@ -1,15 +1,19 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+"use client";
 
-const ProgressBar = ({ time = 0 }) => {
-  const [progress, setProgress] = useState(0);
-  const [currentTime, setCurrentTime] = useState(0);
+import React, { useEffect, useState } from "react";
+
+const ProgressBar = ({ progress }: { progress: number }) => {
+  const [width, setWidth] = useState(0);
+  useEffect(() => {
+    setWidth(progress);
+    console.log("progress", progress);
+  }, [progress]);
 
   return (
     <div className={"w-full bg-gray-300 rounded-full h-0.5"}>
       <div
-        className="bg-white h-0.5 rounded-full"
-        style={{ width: `${progress}%` }}
+        className="bg-white h-0.5 rounded-full transition-all duration-300 ease-in-out"
+        style={{ width: `${width}%` }}
       ></div>
     </div>
   );
