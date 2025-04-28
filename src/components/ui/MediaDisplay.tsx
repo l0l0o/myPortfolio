@@ -49,7 +49,7 @@ const MediaDisplay = ({
     if (isActive && story && isPlaying && currentIndex < story.content.length) {
       timerRef.current = setInterval(() => {
         setCurrentTime((prev) => {
-          const newTime = prev + 0.1;
+          const newTime = prev + 0.01;
           const newProgress = (newTime / duration) * 100;
 
           setProgress(newProgress);
@@ -71,7 +71,7 @@ const MediaDisplay = ({
 
           return newTime;
         });
-      }, 100);
+      }, 10);
     }
 
     // Clean up timer on unmount
