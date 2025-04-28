@@ -16,19 +16,23 @@ const MediaDisplay = ({
   isActive: boolean;
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-
   const [isPlaying, setIsPlaying] = useState(false);
-
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [progress, setProgress] = useState(0);
+  const [progressArray, setProgressArray] = useState<number[]>([]);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   const handlePlayPause = () => {
     setIsPlaying((prev) => !prev);
   };
 
-  // Reset timer and progress when changing to a new story item
+  useEffect(() => {
+    if (isActive && story) {
+      setProgressArray(new Array(story.content.length).fill(0));
+    }
+  }, [isActive, story]);
+
   useEffect(() => {
     if (isActive && story && currentIndex < story.content.length) {
       setDuration(story.content[currentIndex].time);
@@ -37,15 +41,12 @@ const MediaDisplay = ({
     }
   }, [isActive, story, currentIndex]);
 
-  // Handle the timer logic
   useEffect(() => {
-    // Clear any existing timer
     if (timerRef.current) {
       clearInterval(timerRef.current);
       timerRef.current = null;
     }
 
-    // Only start timer if we're active, have a story, and are playing
     if (isActive && story && isPlaying && currentIndex < story.content.length) {
       timerRef.current = setInterval(() => {
         setCurrentTime((prev) => {
@@ -54,19 +55,21 @@ const MediaDisplay = ({
 
           setProgress(newProgress);
 
-          // Move to the next story item when the current one is done
+          setProgressArray((prevArray) => {
+            const newArray = [...prevArray];
+            newArray[currentIndex] = newProgress;
+            return newArray;
+          });
+
           if (newProgress >= 100) {
             clearInterval(timerRef.current as NodeJS.Timeout);
 
-            // If there are more items to show
             if (currentIndex < story.content.length - 1) {
-              setCurrentIndex((prev) => prev + 1);
+              setCurrentIndex(currentIndex + 1);
             } else {
-              // Reached the end of all content
               setIsPlaying(false);
               redirect("/");
             }
-            return 0;
           }
 
           return newTime;
@@ -74,7 +77,6 @@ const MediaDisplay = ({
       }, 10);
     }
 
-    // Clean up timer on unmount
     return () => {
       if (timerRef.current) {
         clearInterval(timerRef.current);
@@ -82,13 +84,13 @@ const MediaDisplay = ({
     };
   }, [isActive, story, isPlaying, currentIndex, duration]);
 
-  // Set initial state when becoming active
   useEffect(() => {
     if (isActive && story) {
       setCurrentIndex(0);
       setIsPlaying(true);
     }
   }, [isActive, story]);
+
   return (
     <>
       {story && isActive && (
@@ -99,13 +101,7 @@ const MediaDisplay = ({
                 {story.content.map((item, index) => (
                   <ProgressBar
                     key={index}
-                    progress={
-                      index === currentIndex
-                        ? progress
-                        : index < currentIndex
-                        ? 100
-                        : 0
-                    }
+                    progress={progressArray[index] || 0}
                   />
                 ))}
               </div>
