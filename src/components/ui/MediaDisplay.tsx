@@ -19,7 +19,6 @@ const MediaDisplay = ({
   const [isPlaying, setIsPlaying] = useState(false);
   const [, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [, setProgress] = useState(0);
   const [progressArray, setProgressArray] = useState<number[]>([]);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -37,7 +36,6 @@ const MediaDisplay = ({
     if (isActive && story && currentIndex < story.content.length) {
       setDuration(story.content[currentIndex].time);
       setCurrentTime(0);
-      setProgress(0);
     }
   }, [isActive, story, currentIndex]);
 
@@ -52,8 +50,6 @@ const MediaDisplay = ({
         setCurrentTime((prev) => {
           const newTime = prev + 0.01;
           const newProgress = (newTime / duration) * 100;
-
-          setProgress(newProgress);
 
           setProgressArray((prevArray) => {
             const newArray = [...prevArray];
