@@ -1,19 +1,23 @@
 import Image from "next/image";
-import { ReactElement } from "react";
 
 export default function RoundedPicture({
-  children,
+  src,
+  width,
+  height,
   size,
   hasBorder = false,
   borderColor = "gray",
 }: {
-  children: ReactElement<typeof Image>;
-  size: "xs" | "md" | "lg";
+  src: string;
+  width: number;
+  height: number;
+  size: "xs" | "sm" | "md" | "lg";
   hasBorder?: boolean;
   borderColor?: "gray" | "colored";
 }) {
   const pictureSize = {
     xs: 24,
+    sm: 32,
     md: 77,
     lg: 150,
   };
@@ -33,7 +37,7 @@ export default function RoundedPicture({
           height: `${pictureSize[size]}px`,
         }}
       >
-        {children}
+        <Image src={src} alt="" width={width} height={height} />
       </div>
 
       {hasBorder && (
