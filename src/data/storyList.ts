@@ -14,29 +14,6 @@ export const StoryList: Story[] = [
         image: "images/logo.svg",
         time: 5,
       },
-      {
-        image: "images/logo.svg",
-        time: 5,
-      },
-    ],
-  },
-  {
-    id: "2",
-    title: "Outils",
-    image: "images/logo.svg",
-    content: [
-      {
-        image: "images/logo.svg",
-        time: 5,
-      },
-      {
-        image: "images/logo.svg",
-        time: 5,
-      },
-      {
-        image: "images/logo.svg",
-        time: 5,
-      },
     ],
   },
 ];
