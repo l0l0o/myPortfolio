@@ -18,7 +18,7 @@ export const StoryList: Story[] = [
   },
   {
     id: "1",
-    title: "Compétences",
+    title: "Stack",
     image: "images/logo.svg",
     content: [
       {
