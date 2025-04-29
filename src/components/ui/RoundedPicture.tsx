@@ -38,7 +38,7 @@ export default function RoundedPicture({
   return (
     <div className="relative cursor-pointer" onClick={onClick}>
       <div
-        className={`flex items-center justify-center rounded-full ${color} ${className}`}
+        className={`flex items-center justify-center rounded-full overflow-hidden ${color} ${className}`}
         style={{
           width: `${pictureSize[size]}px`,
           height: `${pictureSize[size]}px`,
