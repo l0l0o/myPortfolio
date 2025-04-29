@@ -1,8 +1,11 @@
+"use client";
+
 import Button from "@/components/ui/Button";
 import NumberedText from "@/components/ui/NumberedText";
 import Image from "next/image";
 import RoundedPicture from "@/components/ui/RoundedPicture";
 import formatUsername from "@/utils/formatUsername";
+import { useState } from "react";
 
 export default function Header({
   user_id = "loic_caille",
@@ -20,7 +23,7 @@ export default function Header({
   className?: string;
 }) {
   const formattedUsername = formatUsername(username);
-
+  const [isFollowed, setIsFollowed] = useState(false);
   return (
     <div className={`flex items-center ${className}`}>
       <div className="flex gap-0 w-full">
@@ -38,12 +41,22 @@ export default function Header({
             <span className="text-xl font-regular mr-5">{user_id}</span>
             <div className="flex flex-row gap-2">
               <Button
-                text="Suivi(e)"
+                text={isFollowed ? "Suivi(e)" : "Suivre"}
+                onClick={() => setIsFollowed(!isFollowed)}
                 hasSmallText={true}
-                hasIcon={true}
+                hasIcon={isFollowed}
                 icon="icons/chevron_up.svg"
+                className={
+                  isFollowed
+                    ? "bg-gray-100 hover:bg-gray-200"
+                    : "text-white bg-[#0095F6] hover:bg-[#1877f2]"
+                }
               />
-              <Button text="Contacter" hasSmallText={false} />
+              <Button
+                text="Contacter"
+                className="bg-gray-100 hover:bg-gray-200"
+                hasSmallText={false}
+              />
             </div>
             <Image
               src="icons/more.svg"
@@ -68,13 +81,13 @@ export default function Header({
             <span className="text-md font-regular text-gray-400">
               {description}
             </span>
-            <div className="flex flex-row gap-2 items-center">
+            <div className="flex flex-row gap-1.5 items-center">
               <Image src="icons/link.svg" alt="logo" width={12} height={12} />
               <a
                 href="https://github.com/l0l0o"
-                className="text-sm font-semibold text-blue-950"
+                className="text-sm font-semibold text-[#00376b] hover:underline"
               >
-                Mon github
+                Github
               </a>
             </div>
           </div>

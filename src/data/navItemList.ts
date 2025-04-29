@@ -7,13 +7,13 @@ export const navItemList: NavItem[] = [
     focusIcon: "icons/home_focus.svg",
   },
   {
-    title: "Messages",
+    title: "Contacter",
     icon: "icons/send.svg",
     focusIcon: "icons/send_focus.svg",
   },
-  {
-    title: "Créer",
-    icon: "icons/create.svg",
-    focusIcon: "icons/create_focus.svg",
-  },
+  // {
+  //   title: "Créer",
+  //   icon: "icons/create.svg",
+  //   focusIcon: "icons/create_focus.svg",
+  // },
 ];
