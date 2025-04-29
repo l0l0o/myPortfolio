@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useSearchParams } from "next/navigation";
 import Logo from "@/components/ui/Logo";
 import Link from "next/link";
 import MediaDisplay from "@/components/ui/MediaDisplay";
@@ -11,7 +11,9 @@ import Story from "@/types/story.type";
 
 const HighlightStory = () => {
   const params = useParams();
+  const searchParams = useSearchParams();
   const id = params.id as string;
+  const shouldShowLastContent = searchParams.get("lastContent") === "true";
 
   console.log("id", id);
 
@@ -33,11 +35,17 @@ const HighlightStory = () => {
       >
         <Image src="/icons/close.svg" alt="logo" fill />
       </Link>
-      <MediaDisplay
-        story={stories[Number(id)]}
-        storyIndex={Number(id)}
-        isActive={true}
-      />
+      {!loading && stories[Number(id)] && (
+        <MediaDisplay
+          story={stories[Number(id)]}
+          storyIndex={Number(id)}
+          isActive={true}
+          totalStories={stories.length}
+          initialContentIndex={
+            shouldShowLastContent ? stories[Number(id)].content.length - 1 : 0
+          }
+        />
+      )}
     </div>
   );
 };

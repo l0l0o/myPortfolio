@@ -1,24 +1,29 @@
 "use client";
 
-import ProgressBar from "@/components/ui/ProgressBar";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
+import Story from "@/types/story.type";
+import ProgressBar from "@/components/ui/ProgressBar";
 import VideoButton from "@/components/ui/VideoButton";
 import StoryTitle from "@/components/ui/StoryTitle";
-import Story from "@/types/story.type";
-import Image from "next/image";
-import { redirect } from "next/navigation";
 import RoundedPicture from "@/components/ui/RoundedPicture";
 
 const MediaDisplay = ({
   story,
   storyIndex,
   isActive,
+  totalStories,
+  initialContentIndex = 0,
 }: {
   story: Story;
   storyIndex: number;
   isActive: boolean;
+  totalStories: number;
+  initialContentIndex?: number;
 }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const router = useRouter();
+  const [currentIndex, setCurrentIndex] = useState(initialContentIndex);
   const [isPlaying, setIsPlaying] = useState(false);
   const [, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -29,11 +34,96 @@ const MediaDisplay = ({
     setIsPlaying((prev) => !prev);
   };
 
+  const resetTimer = () => {
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+      timerRef.current = null;
+    }
+    setCurrentTime(0);
+  };
+
+  const goToNextStory = () => {
+    resetTimer();
+    if (storyIndex < totalStories - 1) {
+      router.push(`/stories/highlights/${storyIndex + 1}`);
+    } else {
+      router.push("/");
+    }
+  };
+
+  const goToPrevStory = () => {
+    resetTimer();
+    if (storyIndex > 0) {
+      router.push(`/stories/highlights/${storyIndex - 1}?lastContent=true`);
+    }
+  };
+
+  const leftButton = () => {
+    resetTimer();
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1);
+
+      setProgressArray((prevArray) => {
+        const newArray = [...prevArray];
+        for (let i = 0; i < newArray.length; i++) {
+          if (i < currentIndex - 1) {
+            newArray[i] = 100;
+          } else {
+            newArray[i] = 0;
+          }
+        }
+        return newArray;
+      });
+    } else {
+      if (storyIndex > 0) {
+        goToPrevStory();
+      } else {
+        resetTimer();
+        setProgressArray((prevArray) => {
+          const newArray = [...prevArray];
+          newArray[0] = 0;
+          return newArray;
+        });
+        setIsPlaying(true);
+      }
+    }
+    setIsPlaying(true);
+  };
+
+  const rightButton = () => {
+    resetTimer();
+    if (currentIndex < story.content.length - 1) {
+      setCurrentIndex(currentIndex + 1);
+
+      setProgressArray((prevArray) => {
+        const newArray = [...prevArray];
+        for (let i = 0; i < newArray.length; i++) {
+          if (i <= currentIndex) {
+            newArray[i] = 100;
+          } else {
+            newArray[i] = 0;
+          }
+        }
+        return newArray;
+      });
+    } else {
+      if (storyIndex < totalStories - 1) {
+        goToNextStory();
+      } else {
+        router.push("/");
+      }
+    }
+    setIsPlaying(true);
+  };
+
   useEffect(() => {
     if (isActive && story) {
-      setProgressArray(new Array(story.content.length).fill(0));
+      const initialProgressArray = story.content.map((_, index) => {
+        return index < currentIndex ? 100 : 0;
+      });
+      setProgressArray(initialProgressArray);
     }
-  }, [isActive, story]);
+  }, [isActive, story, currentIndex]);
 
   useEffect(() => {
     if (isActive && story && currentIndex < story.content.length) {
@@ -56,7 +146,19 @@ const MediaDisplay = ({
 
           setProgressArray((prevArray) => {
             const newArray = [...prevArray];
-            newArray[currentIndex] = newProgress;
+
+            // Mettre à jour uniquement la progression de l'élément courant
+            // Les éléments précédents sont à 100% et les éléments suivants à 0%
+            for (let i = 0; i < newArray.length; i++) {
+              if (i < currentIndex) {
+                newArray[i] = 100;
+              } else if (i === currentIndex) {
+                newArray[i] = newProgress;
+              } else {
+                newArray[i] = 0;
+              }
+            }
+
             return newArray;
           });
 
@@ -67,7 +169,7 @@ const MediaDisplay = ({
               setCurrentIndex(currentIndex + 1);
             } else {
               setIsPlaying(false);
-              redirect("/stories/highlights/" + (storyIndex + 1));
+              goToNextStory();
             }
           }
 
@@ -81,11 +183,18 @@ const MediaDisplay = ({
         clearInterval(timerRef.current);
       }
     };
-  }, [isActive, story, isPlaying, currentIndex, duration, storyIndex]);
+  }, [
+    isActive,
+    story,
+    isPlaying,
+    currentIndex,
+    duration,
+    storyIndex,
+    totalStories,
+  ]);
 
   useEffect(() => {
     if (isActive && story) {
-      setCurrentIndex(0);
       setIsPlaying(true);
     }
   }, [isActive, story]);
@@ -105,18 +214,20 @@ const MediaDisplay = ({
           <div
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className={`h-screen flex items-center transition-all duration-300 ${
+            className={`h-screen w-6 flex items-center transition-all duration-300 ${
               isHovered ? "" : "opacity-25"
             }`}
           >
-            <RoundedPicture
-              onClick={() => {}}
-              src={"/icons/chevron_navigation.svg"}
-              width={12}
-              height={12}
-              size="xs"
-              className={`rotate-180`}
-            />
+            {!(storyIndex === 0 && currentIndex === 0) && (
+              <RoundedPicture
+                onClick={leftButton}
+                src={"/icons/chevron_navigation.svg"}
+                width={12}
+                height={12}
+                size="xs"
+                className={`rotate-180`}
+              />
+            )}
           </div>
           <div className="h-screen max-w-[366px] w-full py-4">
             <div className="w-full h-full bg-white relative rounded-md overflow-hidden">
@@ -155,17 +266,22 @@ const MediaDisplay = ({
           <div
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className={`h-screen flex items-center transition-all duration-300 ${
+            className={`h-screen w-6 flex items-center transition-all duration-300 ${
               isHovered ? "" : "opacity-25"
             }`}
           >
-            <RoundedPicture
-              onClick={() => {}}
-              src={"/icons/chevron_navigation.svg"}
-              width={12}
-              height={12}
-              size="xs"
-            />
+            {!(
+              storyIndex === totalStories - 1 &&
+              currentIndex === story.content.length - 1
+            ) && (
+              <RoundedPicture
+                onClick={rightButton}
+                src={"/icons/chevron_navigation.svg"}
+                width={12}
+                height={12}
+                size="xs"
+              />
+            )}
           </div>
         </div>
       )}
