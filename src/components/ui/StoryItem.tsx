@@ -9,9 +9,9 @@ export default function StoryItem({
 }) {
   return (
     <>
-      <div className="flex flex-col gap-3 items-center px-3.5 py-2.5 cursor-pointer">
-        {image && (
-          <Link href={`/stories/highlights/${id}`}>
+      <Link href={`/stories/highlights/${id}`}>
+        <div className="flex flex-col gap-3 items-center px-3.5 py-2.5 cursor-pointer">
+          {image && (
             <RoundedPicture
               hasBorder={true}
               size="md"
@@ -19,10 +19,10 @@ export default function StoryItem({
               width={75}
               height={75}
             />
-          </Link>
-        )}
-        <span className="text-xs font-semibold">{title}</span>
-      </div>
+          )}
+          <span className="text-xs font-semibold">{title}</span>
+        </div>
+      </Link>
     </>
   );
 }
