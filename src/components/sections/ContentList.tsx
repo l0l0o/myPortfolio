@@ -37,9 +37,7 @@ export default function ContentList() {
       </ul>
       <div className="grid grid-cols-3 gap-1">
         {postsList.map((post) => (
-          <div key={post.id} className="h-[412px] w-full">
-            <PostCard post={post} />
-          </div>
+          <PostCard post={post} key={post.id} allPosts={postsList} />
         ))}
       </div>
     </div>
