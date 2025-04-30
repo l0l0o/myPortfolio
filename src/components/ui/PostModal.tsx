@@ -110,11 +110,7 @@ export default function PostModal({
         <div className="flex flex-row h-full w-full items-center justify-center">
           {!currentImageSize.isLoading && isPortrait ? (
             <div
-              className="relative w-auto bg-black flex items-center justify-center"
-              style={{
-                height: `${Math.min(parentHeight, 700)}px`,
-                maxHeight: "100%",
-              }}
+              className="relative bg-black flex items-center justify-center max-w-[500px] h-full"
               onClick={(e) => e.stopPropagation()}
             >
               <Image
@@ -128,10 +124,17 @@ export default function PostModal({
             </div>
           ) : (
             <div
-              className="relative w-full h-full max-w-[500px] max-h-[700px] bg-black"
+              className="relative bg-black flex items-center justify-center max-w-[500px] h-full"
               onClick={(e) => e.stopPropagation()}
             >
-              <Image src={post.image} alt="" className="object-contain" fill />
+              <Image
+                src={post.image}
+                alt=""
+                className="object-contain max-h-full w-auto"
+                width={0}
+                height={0}
+                sizes="100vw"
+              />
             </div>
           )}
           <CommentList post={post} />

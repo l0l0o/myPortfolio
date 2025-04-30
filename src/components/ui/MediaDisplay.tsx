@@ -229,7 +229,7 @@ const MediaDisplay = ({
               />
             )}
           </div>
-          <div className="h-screen max-w-[366px] w-full py-4">
+          <div className="h-screen max-w-[470px] w-full py-4">
             <div className="w-full h-full bg-white relative rounded-md overflow-hidden">
               <div className="absolute top-0 left-0 z-10 w-full flex flex-col gap-4 pt-5 px-4 pb-8 bg-gradient-to-b from-black to-transparent">
                 <div className="w-full flex flex-row gap-0.5">
