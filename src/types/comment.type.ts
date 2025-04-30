@@ -6,4 +6,8 @@ export default interface Comment {
     name: string;
     picture: string;
   };
+  createdAt: string;
+  likes: number;
+  isLiked?: boolean;
+  replies?: Comment[];
 }

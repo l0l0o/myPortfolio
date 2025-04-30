@@ -1,14 +1,12 @@
+import Comment from "@/types/comment.type";
+
 export default interface Post {
   id: string;
+  userInfo: {
+    username: string;
+    picture: string;
+  };
   likes: number;
   image: string;
-  comments: Array<{
-    id: string;
-    text: string;
-    user: {
-      id: string;
-      name: string;
-      picture: string;
-    };
-  }>;
+  comments: Comment[];
 }
