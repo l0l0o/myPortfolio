@@ -1,9 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { postCategories } from "@/data/postCategoryList";
 import CategoryListItem from "@/components/ui/CategoryListItem";
 import PostCard from "@/components/ui/PostCard";
+import useGetPostsList from "@/hooks/useGetPosts";
+import Post from "@/types/post.type";
 
 export default function ContentList() {
   const [isFocus, setIsFocus] = useState(
@@ -13,6 +15,12 @@ export default function ContentList() {
   const handleClick = (title: string) => {
     setIsFocus(postCategories.find((item) => item.title === title));
   };
+  const [postsList, setPostsList] = useState<Post[]>([]);
+  const newPosts = useGetPostsList();
+
+  useEffect(() => {
+    setPostsList(newPosts);
+  }, [newPosts]);
 
   return (
     <div className="flex flex-col">
@@ -28,7 +36,11 @@ export default function ContentList() {
         ))}
       </ul>
       <div className="grid grid-cols-3 gap-1">
-        <PostCard picture="" />
+        {postsList.map((post) => (
+          <div key={post.id} className="h-[412px] w-full">
+            <PostCard post={post} />
+          </div>
+        ))}
       </div>
     </div>
   );
