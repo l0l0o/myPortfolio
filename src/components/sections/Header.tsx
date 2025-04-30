@@ -6,10 +6,11 @@ import Image from "next/image";
 import RoundedPicture from "@/components/ui/RoundedPicture";
 import formatUsername from "@/utils/formatUsername";
 import { useState } from "react";
+import { DEFAULT_USER_ID, DEFAULT_USERNAME } from "@/constantes/userInfo";
 
 export default function Header({
-  user_id = "loic_caille",
-  username = "Loïc Caillé",
+  user_id = DEFAULT_USER_ID,
+  username = DEFAULT_USERNAME,
   description = "Développeur fullstack web et mobile",
   user1 = "la_chance",
   user2 = "la_passion",
@@ -30,7 +31,7 @@ export default function Header({
         <section className="flex items-center h-45 w-71 justify-center">
           <RoundedPicture
             size="lg"
-            src="/images/profile_picture.webp"
+            src="/stories/profile_picture.webp"
             width={200}
             height={200}
           />
