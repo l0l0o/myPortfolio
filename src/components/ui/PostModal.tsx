@@ -23,7 +23,7 @@ export default function PostModal({
   onChangePost,
 }: PostModalProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [parentHeight, setParentHeight] = useState(0);
+  const [, setParentHeight] = useState(0);
   const [isHoveredNav, setIsHoveredNav] = useState(false);
 
   // Utiliser useImageSize pour le post courant
