@@ -1,39 +1,50 @@
 import Image from "next/image";
-import { ReactElement } from "react";
 
 export default function RoundedPicture({
-  children,
+  className = "",
+  src,
+  width,
+  height,
   size,
   hasBorder = false,
   borderColor = "gray",
+  color = "bg-gray-200",
+  onClick,
 }: {
-  children: ReactElement<typeof Image>;
-  size: "xs" | "md" | "lg";
+  className?: string;
+  src: string;
+  width: number;
+  height: number;
+  size: "xs" | "sm" | "md" | "lg";
   hasBorder?: boolean;
   borderColor?: "gray" | "colored";
+  color?: string;
+  onClick?: () => void;
 }) {
   const pictureSize = {
     xs: 24,
+    sm: 32,
     md: 77,
     lg: 150,
   };
 
   const BORDER_SIZE_ADDITION = {
     xs: 2,
+    sm: 0,
     md: 8,
     lg: 8,
   };
 
   return (
-    <div className="relative cursor-pointer">
+    <div className="relative cursor-pointer" onClick={onClick}>
       <div
-        className="flex items-center justify-center rounded-full bg-blue-500"
+        className={`flex items-center justify-center rounded-full overflow-hidden ${color} ${className}`}
         style={{
           width: `${pictureSize[size]}px`,
           height: `${pictureSize[size]}px`,
         }}
       >
-        {children}
+        <Image src={src} alt="" width={width} height={height} />
       </div>
 
       {hasBorder && (
@@ -47,7 +58,7 @@ export default function RoundedPicture({
             top: `${-BORDER_SIZE_ADDITION[size] / 2}px`,
             left: `${-BORDER_SIZE_ADDITION[size] / 2}px`,
           }}
-        ></div>
+        />
       )}
     </div>
   );

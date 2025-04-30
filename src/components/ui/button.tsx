@@ -7,6 +7,7 @@ export default function Button({
   icon = "",
   hasSmallText = false,
   rotateIcon = "rotate-180",
+  onClick,
 }: {
   text: string;
   className?: string;
@@ -14,10 +15,12 @@ export default function Button({
   icon?: string;
   hasSmallText?: boolean;
   rotateIcon?: string;
+  onClick?: () => void;
 }) {
   return (
     <button
-      className={`h-8 bg-gray-100 rounded-lg px-4 py-2 flex flex-row items-center justify-center gap-1 cursor-pointer hover:bg-gray-200 ${className}`}
+      onClick={onClick}
+      className={`h-8 rounded-lg px-4 py-2 flex flex-row items-center justify-center gap-1 cursor-pointer ${className}`}
     >
       <span className={`font-semibold ${hasSmallText ? "text-sm" : "text-md"}`}>
         {text}

@@ -3,7 +3,7 @@
 import NavItem from "@/components/ui/NavItem";
 import { useState } from "react";
 import { navItemList } from "@/data/navItemList";
-import Image from "next/image";
+import Logo from "@/components/ui/Logo";
 
 export default function Sidebar() {
   const [isFocus, setIsFocus] = useState(
@@ -15,10 +15,9 @@ export default function Sidebar() {
   };
 
   return (
-    <div className="flex flex-col justify-start p-4 pt-2 pb-5 px-3 w-[244px] h-screen border-r border-gray-200">
-      <div className="flex justify-start items-center mb-5 pt-6 px-3 pb-4">
-        <Image src="images/logo.svg" alt="logo" width={103} height={29} />
-      </div>
+    <div className="sticky top-0 flex flex-col justify-start p-4 pt-2 pb-5 px-3 w-[244px] h-screen border-r border-gray-200">
+      <Logo className="flex justify-start items-center mb-5 pt-6 px-3 pb-4" />
+
       <ul className="flex flex-col justify-start">
         {navItemList.map((item) => (
           <li key={item.title}>
