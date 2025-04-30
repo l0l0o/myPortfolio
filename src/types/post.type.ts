@@ -1,6 +1,7 @@
 export default interface Post {
   id: string;
   likes: number;
+  image: string;
   comments: Array<{
     id: string;
     text: string;
