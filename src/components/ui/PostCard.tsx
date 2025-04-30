@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import PostHoverText from "./PostHoverText";
+import PostHoverText from "@/components/ui/PostHoverText";
 import Post from "@/types/post.type";
-import PostModal from "./PostModal";
+import PostModal from "@/components/ui/PostModal";
 
 export default function PostCard({
   post,

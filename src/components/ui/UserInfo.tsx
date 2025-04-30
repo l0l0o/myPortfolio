@@ -1,5 +1,5 @@
 import Post from "@/types/post.type";
-import RoundedPicture from "./RoundedPicture";
+import RoundedPicture from "@/components/ui/RoundedPicture";
 
 const UserInfo = ({ post }: { post: Post }) => {
   const {

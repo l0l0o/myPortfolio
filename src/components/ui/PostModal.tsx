@@ -5,7 +5,7 @@ import { useState, useRef, useEffect } from "react";
 import Post from "@/types/post.type";
 import useImageSize from "@/hooks/useImageSize";
 import RoundedPicture from "@/components/ui/RoundedPicture";
-import CommentList from "./CommentList";
+import CommentList from "@/components/ui/CommentList";
 
 type PostModalProps = {
   post: Post;

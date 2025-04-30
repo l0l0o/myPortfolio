@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import UserInfo from "./UserInfo";
+import UserInfo from "@/components/ui/UserInfo";
 import Post from "@/types/post.type";
-import CommentItem, { commentItemSkeleton } from "./CommentItem";
+import CommentItem, { commentItemSkeleton } from "@/components/ui/CommentItem";
 import { DEFAULT_PROFILE_PICTURE } from "@/constantes/userInfo";
 
-const CommentList = ({ post, isLoading = false }: { post: Post, isLoading?: boolean }) => {
+const CommentList = ({
+  post,
+  isLoading = false,
+}: {
+  post: Post;
+  isLoading?: boolean;
+}) => {
   const [commentText, setCommentText] = useState("");
   const [comments, setComments] = useState(post.comments);
 
@@ -57,18 +63,18 @@ const CommentList = ({ post, isLoading = false }: { post: Post, isLoading?: bool
         />
       </div>
       <div className="flex flex-col gap-1 p-4 h-full items-start justify-start overflow-y-auto">
-        {isLoading ? (
-          // Afficher des squelettes pendant le chargement
-          Array(5).fill(0).map((_, index) => (
-            <React.Fragment key={`skeleton-${index}`}>
-              {commentItemSkeleton()}
-            </React.Fragment>
-          ))
-        ) : (
-          comments.map((comment) => (
-            <CommentItem key={comment.id} comment={comment} />
-          ))
-        )}
+        {isLoading
+          ? // Afficher des squelettes pendant le chargement
+            Array(5)
+              .fill(0)
+              .map((_, index) => (
+                <React.Fragment key={`skeleton-${index}`}>
+                  {commentItemSkeleton()}
+                </React.Fragment>
+              ))
+          : comments.map((comment) => (
+              <CommentItem key={comment.id} comment={comment} />
+            ))}
       </div>
       <div className="flex flex-row h-15 border-t-1 items-center border-t-neutral-200 p-4 gap-4">
         <Image

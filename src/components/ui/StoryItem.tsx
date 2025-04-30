@@ -1,5 +1,5 @@
 import Link from "next/link";
-import RoundedPicture from "./RoundedPicture";
+import RoundedPicture from "@/components/ui/RoundedPicture";
 import Story from "@/types/story.type";
 
 export default function StoryItem({
