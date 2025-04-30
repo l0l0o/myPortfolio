@@ -96,7 +96,10 @@ export default function PostCard({ post }: { post: Post }) {
                 />
               </div>
             ) : (
-              <div className="relative w-full h-full max-w-[500px] max-h-[700px] bg-black">
+              <div
+                className="relative w-full h-full max-w-[500px] max-h-[700px] bg-black"
+                onClick={(e) => e.stopPropagation()}
+              >
                 <Image
                   src={post.image}
                   alt=""
@@ -105,9 +108,10 @@ export default function PostCard({ post }: { post: Post }) {
                 />
               </div>
             )}
-            <div className="bg-white w-[500px] h-full overflow-y-auto p-4 rounded-br-sm rounded-tr-sm">
-              
-            </div>
+            <div
+              className="bg-white w-[500px] h-full overflow-y-auto p-4 rounded-br-sm rounded-tr-sm"
+              onClick={(e) => e.stopPropagation()}
+            ></div>
           </div>
         </div>
       )}
