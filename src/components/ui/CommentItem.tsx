@@ -1,43 +1,35 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import RoundedPicture from "./RoundedPicture";
+import RoundedPicture from "@/components/ui/RoundedPicture";
 import Comment from "@/types/comment.type";
 
 // Composant pour le contenu du commentaire, réutilisable pour les réponses
-const CommentContent = ({ 
-  user, 
-  text, 
-  createdAt, 
-  likes = 0, 
-  isLiked = false, 
-  onLikeToggle 
-}: { 
-  user: { id: string; name: string; picture: string }, 
-  text: string, 
-  createdAt: string, 
-  likes?: number, 
-  isLiked?: boolean,
-  onLikeToggle: () => void
+const CommentContent = ({
+  user,
+  text,
+  createdAt,
+  likes = 0,
+  isLiked = false,
+  onLikeToggle,
+}: {
+  user: { id: string; name: string; picture: string };
+  text: string;
+  createdAt: string;
+  likes?: number;
+  isLiked?: boolean;
+  onLikeToggle: () => void;
 }) => {
   return (
     <div className="flex flex-row gap-3 w-full">
-      <RoundedPicture
-        src={user.picture}
-        width={24}
-        height={24}
-        size="sm"
-      />
+      <RoundedPicture src={user.picture} width={24} height={24} size="sm" />
       <div className="flex flex-col flex-grow">
         <div className="flex flex-row justify-between items-start">
           <div>
             <span className="text-sm text-black">
-              <span className="font-semibold">{user.name}</span>{" "}
-              {text}
+              <span className="font-semibold">{user.name}</span> {text}
             </span>
             <div className="flex flex-row gap-4 mt-1">
-              <span className="text-xs text-neutral-500">
-                {createdAt}
-              </span>
+              <span className="text-xs text-neutral-500">{createdAt}</span>
               {likes > 0 && (
                 <span className="text-xs text-neutral-500">
                   {likes} J&apos;aime{likes > 1 ? "s" : ""}
@@ -74,7 +66,7 @@ const CommentItem = ({ comment }: { comment: Comment }) => {
 
   return (
     <div className="flex flex-col w-full mb-3">
-      <CommentContent 
+      <CommentContent
         user={comment.user}
         text={comment.text}
         createdAt={comment.createdAt}
@@ -99,7 +91,7 @@ const CommentItem = ({ comment }: { comment: Comment }) => {
             <div className="mt-3 pl-4">
               {comment.replies.map((reply) => (
                 <div key={reply.id} className="mb-3">
-                  <CommentContent 
+                  <CommentContent
                     user={reply.user}
                     text={reply.text}
                     createdAt={reply.createdAt}
