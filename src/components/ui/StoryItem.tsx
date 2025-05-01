@@ -4,8 +4,10 @@ import Story from "@/types/story.type";
 
 export default function StoryItem({
   story: { id, image, title },
+  className,
 }: {
   story: Story;
+  className?: string;
 }) {
   return (
     <>
@@ -18,6 +20,7 @@ export default function StoryItem({
               src={image}
               width={75}
               height={75}
+              className={className}
             />
           )}
           <span className="text-xs font-semibold">{title}</span>

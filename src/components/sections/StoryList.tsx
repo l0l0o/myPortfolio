@@ -40,7 +40,9 @@ export default function StoryList() {
       {loading ? (
         <StorySkeletons />
       ) : (
-        stories.map((story) => <StoryItem key={story.id} story={story} />)
+        stories.map((story) => (
+          <StoryItem key={story.id} story={story} className="bg-white" />
+        ))
       )}
     </div>
   );
