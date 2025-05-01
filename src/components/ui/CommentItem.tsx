@@ -21,11 +21,11 @@ const CommentContent = ({
 }) => {
   return (
     <div className="flex flex-row gap-3 w-full">
-      <RoundedPicture src={user.picture} width={24} height={24} size="sm" />
+      <RoundedPicture src={user.picture} width={30} height={30} size="sm" />
       <div className="flex flex-col flex-grow">
-        <div className="flex flex-row justify-between items-start">
+        <div className="flex flex-row justify-between items-center">
           <div>
-            <span className="text-sm text-black">
+            <span className="text-sm text-black w-full">
               <span className="font-semibold">{user.name}</span> {text}
             </span>
             <div className="flex flex-row gap-4 mt-1">
@@ -40,13 +40,17 @@ const CommentContent = ({
               </span>
             </div>
           </div>
-          <div onClick={onLikeToggle} className="cursor-pointer">
-            <Image
-              src={isLiked ? "/icons/like_focus.svg" : "/icons/like.svg"}
-              alt="Like"
-              width={12}
-              height={12}
-            />
+          <div
+            onClick={onLikeToggle}
+            className="cursor-pointer p-1.5 w-10 relative"
+          >
+            <div className="size-full">
+              <Image
+                src={isLiked ? "/icons/like_focus.svg" : "/icons/like.svg"}
+                alt="Like"
+                fill
+              />
+            </div>
           </div>
         </div>
       </div>
