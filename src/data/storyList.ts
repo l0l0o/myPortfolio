@@ -4,7 +4,7 @@ export const StoryList: Story[] = [
   {
     id: "0",
     title: "Projets",
-    image: "/stories/projet.webp",
+    image: "/stories/icons/projet.webp",
     content: [
       {
         image: "/stories/projets/pomo-pomo.webp",
@@ -59,7 +59,7 @@ export const StoryList: Story[] = [
   {
     id: "1",
     title: "Stack",
-    image: "/stories/stack.webp",
+    image: "/stories/icons/stack.webp",
     content: [
       {
         image: "/images/test.webp",
@@ -74,7 +74,7 @@ export const StoryList: Story[] = [
   {
     id: "2",
     title: "Outils",
-    image: "/stories/tools.webp",
+    image: "/stories/icons/tools.webp",
     content: [
       {
         image: "/images/test.webp",
@@ -89,7 +89,7 @@ export const StoryList: Story[] = [
   {
     id: "3",
     title: "Mes à côtés",
-    image: "/stories/sides.webp",
+    image: "/stories/icons/sides.webp",
     content: [
       {
         image: "/images/test.webp",
