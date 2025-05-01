@@ -62,42 +62,27 @@ export const StoryList: Story[] = [
     image: "/stories/icons/stack.webp",
     content: [
       {
-        image: "/images/test.webp",
-        time: 1,
-      },
-      {
-        image: "/images/next.svg",
-        time: 5,
+        image: "/stories/stack/stack.webp",
+        time: 7,
       },
     ],
   },
   {
     id: "2",
-    title: "Outils",
-    image: "/stories/icons/tools.webp",
-    content: [
-      {
-        image: "/images/test.webp",
-        time: 1,
-      },
-      {
-        image: "/images/next.svg",
-        time: 5,
-      },
-    ],
-  },
-  {
-    id: "3",
     title: "Mes à côtés",
     image: "/stories/icons/sides.webp",
     content: [
       {
-        image: "/images/test.webp",
-        time: 1,
+        image: "/stories/sides/sides.webp",
+        time: 7,
       },
       {
-        image: "/images/next.svg",
-        time: 5,
+        image: "/stories/sides/sides-1.webp",
+        time: 7,
+      },
+      {
+        image: "/stories/sides/sides-2.webp",
+        time: 7,
       },
     ],
   },
