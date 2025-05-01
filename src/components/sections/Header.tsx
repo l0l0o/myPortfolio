@@ -16,6 +16,7 @@ export default function Header({
   user_id = DEFAULT_USER_ID,
   username = DEFAULT_USERNAME,
   description = "Développeur fullstack web et mobile",
+  description2 = "🚧​ W.I.P: Site en construction 🚧​",
   user1 = "la_chance",
   user2 = "la_passion",
   className = "",
@@ -23,6 +24,7 @@ export default function Header({
   user_id?: string;
   username?: string;
   description?: string;
+  description2?: string;
   user1?: string;
   user2?: string;
   className?: string;
@@ -86,6 +88,9 @@ export default function Header({
             <h2 className="text-md font-regular text-gray-400">
               {description}
             </h2>
+            <span className="text-sm font-semibold text-gray-600 mt-2 mb-2">
+              {description2}
+            </span>
             <div className="flex flex-row gap-1.5 items-center">
               <Image src="icons/link.svg" alt="logo" width={12} height={12} />
               <a
