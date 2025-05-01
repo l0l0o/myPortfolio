@@ -12,15 +12,15 @@ export const PostsList: Post[] = [
       picture: DEFAULT_PROFILE_PICTURE,
     },
     likes: 120,
-    image: "/stories/photo_1.webp",
+    image: "/posts/photo_1.webp",
     comments: [
       {
         id: "1",
-        text: "Great post!",
+        text: "Le Digital Event de cette année était incroyable ! J'ai hâte de voir le prochain !",
         user: {
           id: "1",
-          name: "Alice",
-          picture: "/stories/photo_1.webp",
+          name: "alice_designr",
+          picture: "/user_picture/Female Memojis.png",
         },
         createdAt: "2h",
         likes: 5,
@@ -28,11 +28,11 @@ export const PostsList: Post[] = [
       },
       {
         id: "2",
-        text: "Love the composition!",
+        text: "Notre équipe a vraiment donné le meilleur pendant ces deux semaines intensives !",
         user: {
           id: "2",
-          name: "Bob",
-          picture: "/stories/photo_2.webp",
+          name: "bob.dev42",
+          picture: "/user_picture/Male Memojis.png",
         },
         createdAt: "1h",
         likes: 2,
@@ -40,7 +40,7 @@ export const PostsList: Post[] = [
         replies: [
           {
             id: "2-1",
-            text: "Thanks! I worked hard on it.",
+            text: "Merci ! On a tous travaillé très dur pour aboutir à ce résultat.",
             user: {
               id: DEFAULT_USER_ID,
               name: DEFAULT_USER_ID,
@@ -61,15 +61,15 @@ export const PostsList: Post[] = [
       picture: DEFAULT_PROFILE_PICTURE,
     },
     likes: 245,
-    image: "/stories/photo_collab.webp",
+    image: "/posts/photo_collab_2.webp",
     comments: [
       {
         id: "3",
-        text: "Amazing work as always!",
+        text: "La collaboration pendant le Digital Event était exceptionnelle ! Vivement l'année prochaine !",
         user: {
           id: "3",
-          name: "Charlie",
-          picture: "/stories/photo_3.webp",
+          name: "charlie_code.master",
+          picture: "/user_picture/Male Memojis-1.png",
         },
         createdAt: "5h",
         likes: 14,
@@ -77,11 +77,11 @@ export const PostsList: Post[] = [
       },
       {
         id: "4",
-        text: "What camera did you use for this?",
+        text: "Quelle technologie avez-vous utilisée pour ce projet du Digital Event ?",
         user: {
           id: "4",
-          name: "Diana",
-          picture: "/stories/photo_collab_2.webp",
+          name: "diana.tech_girl",
+          picture: "/user_picture/Female Memojis-1.png",
         },
         createdAt: "3h",
         likes: 0,
@@ -89,11 +89,11 @@ export const PostsList: Post[] = [
       },
       {
         id: "5",
-        text: "The lighting is perfect!",
+        text: "Ces deux semaines de Digital Event ont vraiment porté leurs fruits ! Le résultat est magnifique !",
         user: {
           id: "5",
-          name: "Ethan",
-          picture: "/stories/studyLink.webp",
+          name: "ethan_dev2023",
+          picture: "/user_picture/Male Memojis-2.png",
         },
         createdAt: "2h",
         likes: 7,
@@ -101,7 +101,7 @@ export const PostsList: Post[] = [
         replies: [
           {
             id: "5-1",
-            text: "I used natural light for this one!",
+            text: "On a mis toute notre passion dans ce projet pendant l'événement !",
             user: {
               id: DEFAULT_USER_ID,
               name: DEFAULT_USER_ID,
@@ -122,15 +122,15 @@ export const PostsList: Post[] = [
       picture: DEFAULT_PROFILE_PICTURE,
     },
     likes: 87,
-    image: "/stories/Puzzle-tracer.webp",
+    image: "/posts/Puzzle-tracer.webp",
     comments: [
       {
         id: "6",
-        text: "This inspires me to start my own project!",
+        text: "Le jeu Puzzle Tracer que vous avez développé pendant le Digital Event était vraiment incroyable ! Un des meilleurs projets de l'événement !",
         user: {
           id: "6",
-          name: "Fiona",
-          picture: "/stories/profile_picture.webp",
+          name: "fiona.creative_",
+          picture: "/user_picture/Female Memojis-2.png",
         },
         createdAt: "1j",
         likes: 10,
@@ -145,15 +145,15 @@ export const PostsList: Post[] = [
       picture: DEFAULT_PROFILE_PICTURE,
     },
     likes: 321,
-    image: "/stories/photo_pizza.webp",
+    image: "/posts/photo_pizza.webp",
     comments: [
       {
         id: "7",
-        text: "Your portfolio keeps getting better!",
+        text: "Même les pauses pizza pendant le Digital Event étaient productives ! Super travail d'équipe !",
         user: {
           id: "7",
-          name: "George",
-          picture: "/stories/photo_pizza.webp",
+          name: "geo_coder99",
+          picture: "/user_picture/Male Memojis-3.png",
         },
         createdAt: "6h",
         likes: 12,
@@ -161,11 +161,11 @@ export const PostsList: Post[] = [
       },
       {
         id: "8",
-        text: "How long did this take you to complete?",
+        text: "Combien de temps avez-vous passé sur ce module pendant le Digital Event ?",
         user: {
           id: "8",
-          name: "Hannah",
-          picture: "/stories/Puzzle-tracer.webp",
+          name: "h4nnah.web",
+          picture: "/user_picture/Female Memojis.png",
         },
         createdAt: "5h",
         likes: 2,
@@ -173,7 +173,7 @@ export const PostsList: Post[] = [
         replies: [
           {
             id: "8-1",
-            text: "About two weeks of consistent work!",
+            text: "Pratiquement toutes les nuits de la deuxième semaine du Digital Event ! Ça valait le coup !",
             user: {
               id: DEFAULT_USER_ID,
               name: DEFAULT_USER_ID,
@@ -187,11 +187,11 @@ export const PostsList: Post[] = [
       },
       {
         id: "9",
-        text: "Would love to collaborate someday!",
+        text: "J'espère qu'on pourra collaborer au prochain Digital Event ! Votre équipe a vraiment du talent !",
         user: {
           id: "9",
-          name: "Ian",
-          picture: "/stories/photo_collab.webp",
+          name: "ian.developer_",
+          picture: "/user_picture/Male Memojis-1.png",
         },
         createdAt: "3h",
         likes: 8,
@@ -199,11 +199,11 @@ export const PostsList: Post[] = [
       },
       {
         id: "10",
-        text: "Simply stunning work!",
+        text: "Le Digital Event a vraiment révélé le potentiel de chaque équipe ! Félicitations pour ce travail remarquable !",
         user: {
           id: "10",
-          name: "Julia",
-          picture: "/stories/photo_3.webp",
+          name: "julia.ux_design",
+          picture: "/user_picture/Female Memojis-1.png",
         },
         createdAt: "1h",
         likes: 3,

@@ -15,8 +15,6 @@ const HighlightStory = () => {
   const id = params.id as string;
   const shouldShowLastContent = searchParams.get("lastContent") === "true";
 
-  console.log("id", id);
-
   const [stories, setStories] = useState<Story[]>([]);
   const [loading, setLoading] = useState(true);
   const newStories = useStories();

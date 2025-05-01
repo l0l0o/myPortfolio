@@ -244,8 +244,8 @@ const MediaDisplay = ({
                   <StoryTitle
                     src={story.image}
                     title={story.title}
-                    width={10}
-                    height={10}
+                    width={30}
+                    height={30}
                   />
                   <VideoButton
                     isPlaying={isPlaying}

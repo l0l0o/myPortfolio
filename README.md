@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio Personnel - Inspiration Instagram
 
-## Getting Started
+![Portfolio Preview](public/images/profile_picture.webp)
 
-First, run the development server:
+## 👋 À propos
+
+Ce portfolio est conçu pour me présenter professionnellement ainsi que mes différents projets dans un format inspiré par l'interface Instagram. Cette approche moderne et familière permet aux visiteurs de découvrir mon travail d'une manière interactive et engageante.
+
+## 🎯 Objectif
+
+L'objectif principal de ce portfolio est de :
+
+- Présenter mon profil professionnel et mes compétences
+- Mettre en avant mes différents projets de manière visuelle
+- Offrir une expérience utilisateur agréable inspirée par Instagram
+- Montrer ma maîtrise du développement front-end avec Next.js et React
+
+## 💻 Technologies utilisées
+
+- [Next.js](https://nextjs.org/) - Framework React pour le rendu côté serveur
+- TypeScript - Pour un code plus robuste et maintenable
+- Tailwind CSS - Pour le styling et la gestion du thème clair/sombre
+- React Context API - Pour la gestion des états globaux
+
+## ✨ Fonctionnalités
+
+- Interface utilisateur inspirée d'Instagram
+- Affichage des projets sous forme de "posts"
+- Navigation intuitive entre les différentes sections
+- Stories pour afficher des highlights de projets
+- Mode clair/sombre automatique
+- Animations et transitions fluides
+- Loaders et skeletons pour une meilleure expérience utilisateur
+
+## 🚀 Démarrage
+
+Pour lancer le projet en local :
 
 ```bash
+# Installer les dépendances
+npm install
+
+# Lancer le serveur de développement
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvrez [http://localhost:3000](http://localhost:3000) pour voir le résultat.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📂 Structure du projet
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `src/app` - Pages principales de l'application
+- `src/components` - Composants réutilisables (UI, sections, animations)
+- `src/data` - Données statiques (posts, stories, catégories)
+- `src/types` - Types TypeScript pour l'application
+- `src/context` - Providers React pour gérer l'état global
+- `public` - Assets statiques (images, icônes)
 
-## Learn More
+## 📱 Contact
 
-To learn more about Next.js, take a look at the following resources:
+N'hésitez pas à me contacter pour plus d'informations sur mes projets ou pour discuter d'opportunités de collaboration.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📄 Licence
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Ce projet est sous licence MIT.
