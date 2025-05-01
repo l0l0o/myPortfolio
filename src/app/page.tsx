@@ -1,4 +1,5 @@
 import ContentList from "@/components/sections/ContentList";
+import Footer from "@/components/sections/Footer";
 import Header from "@/components/sections/Header";
 import Sidebar from "@/components/sections/Sidebar";
 import StoryList from "@/components/sections/StoryList";
@@ -14,6 +15,7 @@ export default function Home() {
           <StoryList />
           <ContentList />
         </Wrapper>
+        <Footer />
       </main>
     </div>
   );
