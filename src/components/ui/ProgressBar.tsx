@@ -6,7 +6,6 @@ const ProgressBar = ({ progress }: { progress: number }) => {
   const [width, setWidth] = useState(0);
   useEffect(() => {
     setWidth(progress);
-    console.log("progress", progress);
   }, [progress]);
 
   return (
