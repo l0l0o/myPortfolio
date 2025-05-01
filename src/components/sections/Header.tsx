@@ -79,13 +79,13 @@ export default function Header({
           </div>
 
           <div className="flex flex-row gap-12">
-            <span className="text-md font-semibold">{formattedUsername}</span>
+            <h1 className="text-md font-semibold">{formattedUsername}</h1>
           </div>
 
           <div className="flex flex-col">
-            <span className="text-md font-regular text-gray-400">
+            <h2 className="text-md font-regular text-gray-400">
               {description}
-            </span>
+            </h2>
             <div className="flex flex-row gap-1.5 items-center">
               <Image src="icons/link.svg" alt="logo" width={12} height={12} />
               <a
